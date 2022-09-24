@@ -1,0 +1,18 @@
+<p>rooms works!</p>
+<div [hidden]="hideRooms">
+    <p>Welcome to {{hotelName}}</p>
+
+    <!-- Angular makes writing js easier.
+in angular, Document.querySelector('div').innerText = hotelName; can be written as below, where we provide the property in the brackets which is to be changed and then provide the value in the quotes which also is a variable from ts file of the component -->
+
+    <div [ngStyle]="rooms.availableRooms ? {'color': 'green'} : {'color': 'red'}" [innerText]='hotelName'></div>
+</div>
+
+{{rooms.availableRooms ?? "no rooms"}}
+
+<div *ngIf="rooms?.availableRooms">
+    Rooms List
+<app-rooms-list [rooms]="roomList"></app-rooms-list>
+</div>
+
+<button (click)="toggle()">Toggle</button>
