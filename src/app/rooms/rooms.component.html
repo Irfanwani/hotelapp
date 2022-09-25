@@ -10,9 +10,15 @@ in angular, Document.querySelector('div').innerText = hotelName; can be written 
 
 {{rooms.availableRooms ?? "no rooms"}}
 
+<button (click)="addRoom()">Add room</button>
+
+<div *ngIf="selectedRoom">
+    {{ selectedRoom | json }}
+</div>
+
 <div *ngIf="rooms?.availableRooms">
     Rooms List
-<app-rooms-list [rooms]="roomList"></app-rooms-list>
+    <app-rooms-list [rooms]="roomList" (selectedRoom)="selectRoom($event)"></app-rooms-list>
 </div>
 
 <button (click)="toggle()">Toggle</button>

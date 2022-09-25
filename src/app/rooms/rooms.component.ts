@@ -11,6 +11,8 @@ export class RoomsComponent implements OnInit {
 
   hotelName = 'Hilton hotel';
 
+  selectedRoom!: RoomList;
+
   rooms: Room = { totalRooms: 20, availableRooms: 10, bookedRooms: 5 };
 
   roomList: RoomList[] = [
@@ -41,5 +43,24 @@ export class RoomsComponent implements OnInit {
 
   toggle() {
     this.hideRooms = !this.hideRooms;
+  }
+
+  selectRoom(room: RoomList) {
+    this.selectedRoom = room;
+  }
+
+  newRoom: RoomList = {
+    roomNumber: 3,
+    roomType: 'Standard room',
+    amenities: 'Free wifi, AC, TV, Bathroom, Kitchen',
+    price: 700,
+    photos:
+      'https://www.pexels.com/photo/black-and-grey-bedspread-on-bed-and-pillow-164595/',
+    checkinTime: new Date('11-sep-2022'),
+    checkoutTime: new Date('30-sep-2022'),
+  };
+
+  addRoom() {
+    this.roomList = [...this.roomList, this.newRoom];
   }
 }
