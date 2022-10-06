@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { HeaderComponent } from '../header/header.component';
 import { Room, RoomList } from './rooms';
 
 @Component({
@@ -14,6 +15,10 @@ export class RoomsComponent implements OnInit {
   selectedRoom!: RoomList;
 
   rooms: Room = { totalRooms: 20, availableRooms: 10, bookedRooms: 5 };
+
+  title: string = 'Rooms List';
+
+  @ViewChild(HeaderComponent, {static: true}) headerComponent!: HeaderComponent;
 
   roomList: RoomList[] = [
     {
@@ -43,6 +48,8 @@ export class RoomsComponent implements OnInit {
 
   toggle() {
     this.hideRooms = !this.hideRooms;
+    this.title = 'New title'
+
   }
 
   selectRoom(room: RoomList) {

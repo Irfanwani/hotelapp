@@ -1,4 +1,5 @@
-<p>rooms works!</p>
+<app-header [title]="'this is a title'"></app-header>
+
 <div [hidden]="hideRooms">
     <p>Welcome to {{hotelName}}</p>
 
@@ -17,8 +18,7 @@ in angular, Document.querySelector('div').innerText = hotelName; can be written 
 </div>
 
 <div *ngIf="rooms?.availableRooms">
-    Rooms List
-    <app-rooms-list [rooms]="roomList" (selectedRoom)="selectRoom($event)"></app-rooms-list>
+    <app-rooms-list [rooms]="roomList" (selectedRoom)="selectRoom($event)" [title]="title"></app-rooms-list>
 </div>
 
 <button (click)="toggle()">Toggle</button>
